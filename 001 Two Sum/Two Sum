@@ -1,11 +1,12 @@
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-int* twoSum(int* nums, int numsSize, int target) {
+int* twoSum(int* nums, int numsSize, int target) 
+{
     
     int i = 0;
-	int j = 0;
-    int *result= (int *)malloc(2*sizeof(int));
+    int j = 0;
+    int *result= (int *)malloc(2*sizeof(int));        // 使用malloc函数从堆中获取内存空间，避免返回局部变量的地址
 	for (i = 0; i < (numsSize - 1); i++)
 	{
 		for (j = i + 1; j <= (numsSize - 1); j++)
@@ -15,12 +16,10 @@ int* twoSum(int* nums, int numsSize, int target) {
 				result[0] = i;
 				result[1] = j;
 
-				goto end;
+				goto end;            //  使用goto函数跳出两层循环
 			}
 		}
 
 	}
-end:    return result;
-    
-    
+    end:    return result;
 }
